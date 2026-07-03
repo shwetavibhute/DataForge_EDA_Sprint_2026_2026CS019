@@ -1,0 +1,11 @@
+let
+    Source = Csv.Document(File.Contents("C:\Users\Admin\DataForge_EDA_Sprint_2026_2026CS019\01_data\raw\dataset_raw.csv"),[Delimiter=",", Columns=18, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Row ID", Int64.Type}, {"Order ID", type text}, {"Order Date", type date}, {"Ship Date", type date}, {"Ship Mode", type text}, {"Customer ID", type text}, {"Customer Name", type text}, {"Segment", type text}, {"Country", type text}, {"City", type text}, {"State", type text}, {"Postal Code", Int64.Type}, {"Region", type text}, {"Product ID", type text}, {"Category", type text}, {"Sub-Category", type text}, {"Product Name", type text}, {"Sales", type number}}),
+    #"Added Conditional Column" = Table.AddColumn(#"Changed Type", "Order Size", each if [Sales] > 1000 then "High" else if [Sales] > 500 then "Medium" else "low"),
+    #"Changed Type1" = Table.TransformColumnTypes(#"Added Conditional Column",{{"Order Date", type date}}),
+    #"Filtered Rows" = Table.SelectRows(#"Changed Type1", each true),
+    #"Inserted Year" = Table.AddColumn(#"Filtered Rows", "Year", each Date.Year([Order Date]), Int64.Type),
+    #"Inserted Month Name" = Table.AddColumn(#"Inserted Year", "Month Name", each Date.MonthName([Order Date]), type text)
+in
+    #"Inserted Month Name"
