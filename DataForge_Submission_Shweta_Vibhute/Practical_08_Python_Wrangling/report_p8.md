@@ -29,3 +29,15 @@ Data cleaning is an essential step in data preprocessing that improves data qual
 * Feature engineering generated additional useful information for analysis.
 * A reusable Python script makes the cleaning process faster, consistent, and easier to apply to future datasets.
 
+
+## Report Questions
+
+### 1. What cleaning decision could affect business conclusions?
+
+Answer:
+Filling missing values can affect business conclusions because the chosen method (such as replacing missing values with the mean, median, or "Unknown") may influence statistical summaries, trends, and analysis results. Therefore, the cleaning method should be selected carefully and documented.
+
+### 2. Which engineered feature is most useful and why?
+
+Answer:
+The most useful engineered feature depends on the dataset. For example, if a date column was available, extracting the Month or Year from the date is useful because it helps analyse seasonal patterns, monthly trends, and changes over time, making business insights easier to understand.
