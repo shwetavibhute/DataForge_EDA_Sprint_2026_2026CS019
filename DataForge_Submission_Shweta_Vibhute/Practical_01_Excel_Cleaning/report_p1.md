@@ -8,6 +8,7 @@
 
 The objective of this practical was to set up the DataForge project workspace, acquire the raw dataset, organize the required folder structure, create a data dictionary, and document the repository for efficient data analysis and project management.
 
+
 ## 2. Concept Elaborated
 
 Dataset acquisition is the process of collecting and storing data from a reliable source for analysis. A well-organized project structure improves collaboration and maintainability by separating raw data, processed data, notebooks, scripts, reports, and documentation. A data dictionary provides information about each dataset column, including its data type and meaning, making the dataset easier to understand and use.
